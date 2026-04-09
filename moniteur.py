@@ -1,0 +1,40 @@
+from mysql.connector import connect 
+
+bdd = connect(host="localhost", user="root", password="root", database="Auto")
+
+cursor = bdd.cursor()
+
+
+class moniteur :
+    def __init__(self,id,Nom,Prenom,age,hc,hl):
+        self.id=id
+        self.Nom=Nom
+        self.Prenom=Prenom
+        self.age=age
+        self.hc=hc
+        self.hl=hl
+        
+    def ajouter(self):
+        sql = "INSERT INTO eleve(pro_id, pro_nom, pro_prenom, pro_age, elv_heurescas, elv_heureslbr) VALUES(%s,%s,%s,%s,%s,%s)"
+        cursor.execute(sql,(self.id, self.Nom, self.Prenom, self.age, self.hc, self.hl))
+        bdd.commit()
+    
+    def modifier(self):
+        sql = """UPDATE eleve
+        SET pro_id = %s,
+        pro_nom = %s,
+        pro_preno = %s,
+        pro_age = %s,
+        elv_heurescas = %s,
+        elv_heureslbr = %s,
+        WHERE pro_id = %s """
+        cursor.execute(sql,(self.id, self.Nom, self.Prenom, self.age, self.hc, self.hl,self.id))
+        bdd.commit()
+        
+    def suprimer():
+        i = int(input("entrer id à supprimer"))
+        sql = "DELETE FROM prof WHERE pro_id = %s"
+        cursor.execute(sql,(i,))
+        bdd.commit()
+
+
