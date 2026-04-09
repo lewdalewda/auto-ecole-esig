@@ -5,7 +5,7 @@ bdd = connect(host="localhost", user="root", password="root", database="Auto")
 cursor = bdd.cursor()
 
 
-class moniteur :
+class voiture :
     def __init__(self,id,Nom,annee,capa,km,hpw,lstd,boite):
         self.id=id
         self.Nom=Nom
@@ -23,16 +23,15 @@ class moniteur :
     
     def modifier(self):
         sql = """UPDATE voiture 
-        SET car_id= %s,
-        car_nom = %s, 
+        SET car_nom = %s, 
         car_annee = %s, 
         car_capa = %s, 
         car_km = %s, 
         car_hpw = %s,
         car_lstd = %s,
-        car_boite = %s,
-        WHERE pro_id = %s"""
-        cursor.execute(sql,(self.id, self.Nom, self.annee, self.capa, self.km, self.hpw, self.lstd, self.boite,self.id))
+        car_boite = %s
+        WHERE car_id = %s"""
+        cursor.execute(sql,(self.Nom, self.annee, self.capa, self.km, self.hpw, self.lstd, self.boite,self.id))
         bdd.commit()
         
     def suprimer():
@@ -49,16 +48,22 @@ class moniteur :
                  
                 n = str(input("entre le nom (nom en Majuscule) "))
                  
-                cursor.execute("select car_id from eleve where car_nom = %s ", (n,))
+                cursor.execute("select car_id from voiture where car_nom = %s ", (n,))
                 res = cursor.fetchall()
-                i = res[0]
+                i = res[0][0]
+                
                  
                  
                  
             print(i)
-            sql = "DELETE FROM eleve WHERE car_id = %s"
-            cursor.execute(sql,(i))
+            sql = "DELETE FROM voiture WHERE car_id = %s"
+            cursor.execute(sql,(i,))
             bdd.commit()
             break
                 
-    
+p = voiture(40, "Peugeot 108", 2016, 500, 300000, 100, 0, 0)
+##p.ajouter()
+p.lstd = 2
+p.annee = 2012
+p.modifier()
+bdd.close()

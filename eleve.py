@@ -1,3 +1,4 @@
+
 from mysql.connector import connect 
 
 bdd = connect(host="localhost", user="root", password="root", database="Auto")
@@ -15,25 +16,24 @@ class eleve :
         self.hdf=hdf
         self.boite=boite
         
-    def ajouter(self):
+    def ajouter(self): ## works
         sql = "INSERT INTO eleve(elv_id, elv_nom, elv_prenom, elv_age, elv_heuresfts, elv_heuresrest, elv_boite) VALUES(%s,%s,%s,%s,%s,%s,%s)"
         cursor.execute(sql,(self.id, self.Nom, self.Prenom, self.age, self.hdc, self.hdf, self.boite))
         bdd.commit()
     
-    def modifier(self):
+    def modifier(self): #works
         sql = """UPDATE eleve
-        SET elv_id = %s, 
-        elv_nom = %s, 
+        SET elv_nom = %s, 
         elv_prenom = %s, 
         elv_age = %s, 
         elv_heuresfts = %s, 
         elv_heuresrest = %s, 
-        elv_boite = %s,
+        elv_boite = %s
         WHERE elv_id = %s"""
-        cursor.execute(sql,(self.id, self.Nom, self.Prenom, self.age, self.hdc, self.hdf, self.boite,self.id))
+        cursor.execute(sql,(self.Nom, self.Prenom, self.age, self.hdc, self.hdf, self.boite,self.id))
         bdd.commit()
         
-    def suprimer():
+    def suprimer(): #works
         
         while True:
             choix = int(input("choisisez id 1 ou nom 2 "))
@@ -56,9 +56,12 @@ class eleve :
                 
             print(i)
             sql = "DELETE FROM eleve WHERE elv_id = %s"
-            cursor.execute(sql,(i))
+            cursor.execute(sql,(i,))
             bdd.commit()
             break        
     
-eleve.suprimer()
-
+p = eleve(5, "GAUDEAU", "Axel", 17, 30, 0, 1)
+##p.ajouter()
+p.boite = 0
+p.modifier()
+bdd.close()
