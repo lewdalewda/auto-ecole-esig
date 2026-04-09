@@ -31,7 +31,7 @@ CREATE TABLE prof (
     pro_prenom VARCHAR(30) NOT NULL,
 	pro_age int(100),
 	pro_heurescas int(30),
-	elv_heureslbr int(30),
+	pro_heureslbr int(30),
 	PRIMARY KEY (pro_id)
 )
 ENGINE=INNODB;
@@ -54,7 +54,7 @@ ENGINE=INNODB;
 CREATE TABLE heures (
 	hr_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	hr_date DATE,
-	ht_duree INT,
+	hr_duree INT,
 	hr_elv INT UNSIGNED NOT NULL,
 	hr_prof INT UNSIGNED NOT NULL,
 	hr_car INT UNSIGNED NOT NULL,
