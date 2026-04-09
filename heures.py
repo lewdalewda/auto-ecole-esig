@@ -13,19 +13,20 @@ class heure :
         self.prof=prof
         self.car=car
         self.km=km
-        self.depart=depart 
+        self.depaft=depart 
         self.fin=fin
         self.boite=boite
         self.passee=passee
     
-    def ajouter(self): ##work
+    def ajouter(self):
         sql = "INSERT INTO heures(hr_id, hr_date, hr_duree, hr_elv, hr_prof, hr_car, hr_km, hr_depart, hr_fin, hr_boite, hr_passee) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
         cursor.execute(sql,(self.id, self.date, self.duree, self.elv, self.prof, self.car, self.km, self.depart, self.fin, self.boite, self.passee))
         bdd.commit()
         
-    def modifier(self): ##work
+    def modifier(self):
         sql = """UPDATE heures 
-        SET hr_date= %s, 
+        SET hr_id= %s,
+        hr_date= %s, 
         hr_duree = %s, 
         hr_elv = %s, 
         hr_prof = %s, 
@@ -34,41 +35,10 @@ class heure :
         hr_depart = %s,
         hr_fin = %s,
         hr_boite = %s,
-        hr_passee = %s
+        hr_passee = %S,
         WHERE hr_id = %s"""
-        cursor.execute(sql,(self.date, self.duree, self.elv, self.prof, self.car, self.km, self.depart, self.fin, self.boite, self.passee, self.id))
+        cursor.execute(sql,(self.id, self.date, self.duree, self.elv, self.prof, self.car, self.km, self.depart, self.fin, self.boite, self.passee))
         bdd.commit()
         
-    def supprimer(): ##work
-           
-        while True:
-            choix = int(input("choisisez id 1 ou nom 2 "))
-             
-            if choix == 1:
-                
-                i = int(input("entrer id à supprimer"))
-                 
-             
-            elif choix == 2:
-                 
-                d = str(input("entre la date (annee-mois-jour) "))
-                 
-                cursor.execute("select hr_id from heures where hr_date = %s ", (d,))
-                res = cursor.fetchall()
-                i = res[0][0]
-                
-                 
-                 
-                 
-            print(i)
-            sql = "DELETE FROM heures WHERE hr_id = %s"
-            cursor.execute(sql,(i,))
-            bdd.commit()
-            break
+    def supprimer(self):
         
-
-h = heure(5,"2026-06-12", 2, 4, 1, 4, 50, "2026-06-12 09:00:00", "2026-06-12 11:00:00", 0, 0)
-##h.ajouter()
-h.date = "2026-07-12"
-h.modifier()
-bdd.close()
