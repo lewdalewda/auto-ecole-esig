@@ -16,6 +16,10 @@ class eleve :
         self.hdf=hdf
         self.boite=boite
         
+    def afficher(self):
+        print(self.id, self.Nom, self.Prenom, self.age, self.hdc, self.hdf, self.boite)
+    
+    
     def ajouter(self): ## works
         sql = "INSERT INTO eleve(elv_id, elv_nom, elv_prenom, elv_age, elv_heuresfts, elv_heuresrest, elv_boite) VALUES(%s,%s,%s,%s,%s,%s,%s)"
         cursor.execute(sql,(self.id, self.Nom, self.Prenom, self.age, self.hdc, self.hdf, self.boite))
