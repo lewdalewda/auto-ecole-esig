@@ -35,9 +35,30 @@ class moniteur :
         cursor.execute(sql,(self.id, self.Nom, self.annee, self.capa, self.km, self.hpw, self.lstd, self.boite,self.id))
         bdd.commit()
         
-    def suprimer(self):
-        sql = "DELETE FROM voiture WHERE car_id = %s"
-        cursor.execute(sql,(self.id,))
-        bdd.commit()
+    def suprimer():
+         
+        while True:
+            choix = int(input("choisisez id 1 ou nom 2 "))
+             
+            if choix == 1:
+                
+                i = int(input("entrer id à supprimer"))
+                 
+             
+            elif choix == 2:
+                 
+                n = str(input("entre le nom (nom en Majuscule) "))
+                 
+                cursor.execute("select car_id from eleve where car_nom = %s ", (n,))
+                res = cursor.fetchall()
+                i = res[0]
+                 
+                 
+                 
+            print(i)
+            sql = "DELETE FROM eleve WHERE car_id = %s"
+            cursor.execute(sql,(i))
+            bdd.commit()
+            break
                 
     
