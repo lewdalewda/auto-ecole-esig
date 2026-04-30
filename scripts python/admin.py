@@ -3,6 +3,7 @@ import eleve
 import voiture
 import moniteur
 from mysql.connector import connect 
+import datetime
 
 bdd = connect(host="localhost", user="root", password="root", database="Auto")
 
@@ -124,14 +125,15 @@ class admin:
                 lst =[]
                 
                 for voi in res:
-                    v = eleve.eleve(voi[0],voi[1],voi[2],voi[3],voi[4],voi[5],voi[6],voi[7])
+                    v = voiture.voiture(voi[0],voi[1],voi[2],voi[3],voi[4],voi[5],voi[6],voi[7])
+                    print(v.id)
                     lst.append(v)
                 print(lst)
                 chx = int(input("entrez id de voiture"))
                 
-                for elv in lst:
-                    if chx == elv.id:
-                        elv.afficher()
+                for car in lst:
+                    if chx == car.id:
+                        car.afficher()
                         edi = int(input(""""que voulez vous modifier ?
                                         1)nom 
                                         2)annee
@@ -140,44 +142,155 @@ class admin:
                                         5)hpw
                                         6)lstd
                                         7)boite
-                                        5)quiter """))
+                                        8)quiter """))
                         if edi == 1:
                             n = str(input("entrez le nouveau nom (en majuscule) "))
-                            p = str(input("entrez le nouveau prenom "))
-                            elv.Nom = n
-                            elv.Prenom = p
-                            elv.modifier()
+                            car.Nom = n
+                            car.modifier()
                             
                         elif edi == 2:
-                            a = str(input("entrez le nouveau age "))
-                            elv.age = a
-                            elv.modifier()
+                            a = str(input("entrez l'année "))
+                            car.age = a
+                            car.modifier()
                         
                         elif edi == 3:
-                            hc = int(input("entrez le nombe d'heures faites "))
-                            hf = 30 - hc
-                            elv.hdc = hc
-                            elv.hdf = hf
-                            elv.modifier()
+                            hc = int(input("entrez la capacité "))
+                            car.capa = hc
+                            car.modifier()
                         
                         elif edi == 4:
-                            b = str(input("boite manuelle (M) ou auto (A) "))
-                            if b == "M":
-                                elv.boite = 0
-                            elif b == "A":
-                                elv.boite = 1
-                            else:
-                                print("entrée non valide")
-                            elv.modifier()
+                            hc = int(input("entrez le kilometrage "))
+                            car.km = hc
+                            car.modifier()
                         
                         elif edi == 5:
+                            hc = int(input("entrez la puissance "))
+                            car.hpw = hc
+                            car.modifier()
+                            
+                        elif edi == 6:
+                            hc = int(input("entrez le dernier conducteur "))
+                            car.lstd = hc
+                            car.modifier()
+                        
+               
+                        elif edi == 7:
+                            b = str(input("boite manuelle (M) ou auto (A) "))
+                            if b == "M":
+                                car.boite = 0
+                            elif b == "A":
+                                car.boite = 1
+                            else:
+                                print("entrée non valide")
+                            car.modifier()
+                        
+                        elif edi == 8:
                             break
             
             elif choix ==4:
-                print("zut")
+                cursor.execute("SELECT * FROM heure")
+                res = cursor.fetchall()
+                lst =[]
+                
+                for hr in res:
+                    h = heures.heure(hr[0],hr[1],hr[2],hr[3],hr[4],hr[5],hr[6],hr[7],hr[8],hr[9],hr[10])
+                    lst.append(h)
+                    print(type(h.date))
+                print(lst)
+                chx = int(input("entrez id d'heure "))
+                
+                for hr in lst:
+                    if chx == hr.id:
+                        hr.afficher()
+                        edi = int(input(""""que voulez vous modifier ?
+                                        1)date 
+                                        2)duree
+                                        3)eleve
+                                        4)prof
+                                        5)voiture
+                                        6)distance
+                                        7)depart
+                                        8)fin
+                                        9)boite
+                                        10)faite
+                                        11) """))
+                        if edi == 1:
+                            y = int(input("entrez l'année ")) ##ATTENTION A BIEN FAIRE MARCHER LES DATES !!!!
+                            m = int(input("entrez le mois "))
+                            d = int(input("entrez le jour "))
+                            a = datetime.date(y,m,d)
+                            hr.date = a
+                            hr.modifier()
+                            
+                        if edi == 2:
+                            n = int(input("entrez la nouvelle duree "))
+                            hr.duree = n
+                            hr.modifier()
+                          
+                        if edi == 3:
+                            n = int(input("entrez l'id de l'eleve "))
+                            hr.elv = n
+                            hr.modifier()
+                             
+                        if edi == 4:
+                            n = int(input("entrez l'id du prof "))
+                            hr.prof = n
+                            hr.modifier()
+                        
+                        if edi == 5:
+                            n = int(input("entrez l'id de la voiture "))
+                            hr.car = n
+                            hr.modifier()
+               
+                        if edi == 6:
+                            n = int(input("entrez la distance "))
+                            hr.km = n
+                            hr.modifier()
+               
+                        if edi == 7:
+                            h = int(input("entrez l'heure de debut "))
+                            m= int(input("entrez les minutes de debut "))
+                            a = datetime.datetime(hr.depart.year, hr.depart.month, hr.depart.day, h, m)
+                            hr.depart = a
+                            hr.modifier()
+                        
+                        if edi == 8:
+                            h = int(input("entrez l'heure de fin "))
+                            m= int(input("entrez les minutes de fin "))
+                            a = datetime.datetime(hr.fin.year, hr.fin.month, hr.fin.day, h, m)
+                            hr.fin = a
+                            hr.modifier()
+                        
+                        if edi == 9:
+                            b = str(input("boite manuelle (M) ou auto (A) "))
+                            if b == "M":
+                                hr.boite = 0
+                            elif b == "A":
+                                hr.boite = 1
+                            else:
+                                print("entrée non valide")
+                            hr.modifier()
+                        
+                        
+                        if edi == 10:
+                            b = str(input("heure complétée (Y) ou pas (N) "))
+                            if b == "Y":
+                                hr.passee = 0
+                            elif b == "N":
+                                hr.passee = 1
+                            else:
+                                print("entrée non valide")
+                            hr.modifier()
+                        
+                        elif edi == 11:
+                            break
+                        
+           
+            
             
             
             elif choix == 5:
+                bdd.close()
                 break
         
 admin.edit()

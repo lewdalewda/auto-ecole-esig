@@ -14,6 +14,11 @@ class moniteur :
         self.hc=hc
         self.hl=hl
         
+    def afficher(self):
+        print(self.id, self.Nom, self.Prenom, self.age, self.hc, self.hl)
+      
+    
+    
     def ajouter(self): #works
         sql = "INSERT INTO prof(pro_id, pro_nom, pro_prenom, pro_age, pro_heurescas, pro_heureslbr) VALUES(%s,%s,%s,%s,%s,%s)"
         cursor.execute(sql,(self.id, self.Nom, self.Prenom, self.age, self.hc, self.hl))
@@ -62,4 +67,4 @@ p = moniteur(3,"GERAUT","Athalia",20,20,10)
 p.age = 25
 p.modifier()
 ##moniteur.suprimer()
-bdd.close()
+##bdd.close()

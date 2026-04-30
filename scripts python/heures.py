@@ -18,13 +18,17 @@ class heure :
         self.boite=boite
         self.passee=passee
     
+    
+    def afficher(self):
+        print(self.id, self.date, self.duree, self.elv, self.prof, self.car, self.km, self.depart, self.fin, self.boite, self.passee)
+    
     def ajouter(self): ##work
-        sql = "INSERT INTO heures(hr_id, hr_date, hr_duree, hr_elv, hr_prof, hr_car, hr_km, hr_depart, hr_fin, hr_boite, hr_passee) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+        sql = "INSERT INTO heure(hr_id, hr_date, hr_duree, hr_elv, hr_prof, hr_car, hr_km, hr_depart, hr_fin, hr_boite, hr_passee) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
         cursor.execute(sql,(self.id, self.date, self.duree, self.elv, self.prof, self.car, self.km, self.depart, self.fin, self.boite, self.passee))
         bdd.commit()
         
     def modifier(self): ##work
-        sql = """UPDATE heures 
+        sql = """UPDATE heure
         SET hr_date= %s, 
         hr_duree = %s, 
         hr_elv = %s, 
@@ -53,7 +57,7 @@ class heure :
                  
                 d = str(input("entre la date (annee-mois-jour) "))
                  
-                cursor.execute("select hr_id from heures where hr_date = %s ", (d,))
+                cursor.execute("select hr_id from heure where hr_date = %s ", (d,))
                 res = cursor.fetchall()
                 i = res[0][0]
                 
@@ -61,7 +65,7 @@ class heure :
                  
                  
             print(i)
-            sql = "DELETE FROM heures WHERE hr_id = %s"
+            sql = "DELETE FROM heure WHERE hr_id = %s"
             cursor.execute(sql,(i,))
             bdd.commit()
             break
@@ -71,4 +75,4 @@ h = heure(5,"2026-06-12", 2, 4, 1, 4, 50, "2026-06-12 09:00:00", "2026-06-12 11:
 ##h.ajouter()
 h.date = "2026-07-12"
 h.modifier()
-bdd.close()
+##bdd.close()

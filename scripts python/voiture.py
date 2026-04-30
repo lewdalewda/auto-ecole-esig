@@ -16,6 +16,10 @@ class voiture :
         self.lstd=lstd
         self.boite=boite
         
+    def afficher(self):
+        print(self.id, self.Nom, self.annee, self.capa, self.km, self.hpw, self.lstd, self.boite)
+      
+    
     def ajouter(self): ##work
         sql = "INSERT INTO voiture(car_id, car_nom, car_annee, car_capa, car_km, car_hpw, car_lstd, car_boite) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)"
         cursor.execute(sql,(self.id, self.Nom, self.annee, self.capa, self.km, self.hpw, self.lstd, self.boite))
@@ -66,4 +70,4 @@ p = voiture(40, "Peugeot 108", 2016, 500, 300000, 100, 0, 0)
 p.lstd = 2
 p.annee = 2012
 p.modifier()
-bdd.close()
+##bdd.close()

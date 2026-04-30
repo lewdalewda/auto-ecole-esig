@@ -68,4 +68,4 @@ p = eleve(5, "GAUDEAU", "Axel", 17, 30, 0, 1)
 ##p.ajouter()
 p.boite = 0
 p.modifier()
-bdd.close()
+##bdd.close()
