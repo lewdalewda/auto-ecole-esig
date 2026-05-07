@@ -51,7 +51,7 @@ CREATE TABLE voiture(
 ENGINE=INNODB;
 
 
-CREATE TABLE heures (
+CREATE TABLE heure (
 	hr_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	hr_date DATE,
 	hr_duree INT,
@@ -96,7 +96,7 @@ VALUES	(10, 'Porshe GT3-RS', 2024, 300, 1000, 525, 1, 1),
 	
 
 
-INSERT INTO heures
+INSERT INTO heure
 VALUES	(1, '2026-04-01', 2, 1, 1, 10, 50, '2026-04-01 16:30', '2026-04-01 18:30', 1, 0),
 	(2, '2026-04-02', 1, 2, 1, 10, 20, '2026-04-02 13:00', '2026-04-01 14:00', 1, 0),
 	(3, '2026-04-03', 2.5, 1, 2, 20, 65, '2026-04-03 09:00', '2026-04-03 11:30', 0, 0),
