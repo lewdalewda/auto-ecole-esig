@@ -65,9 +65,9 @@ class voiture :
             bdd.commit()
             break
                 
-p = voiture(40, "Peugeot 108", 2016, 500, 300000, 100, 0, 0)
+##p = voiture(40, "Peugeot 108", 2016, 500, 300000, 100, 0, 0)
 ##p.ajouter()
-p.lstd = 2
-p.annee = 2012
-p.modifier()
+##p.lstd = 2
+##p.annee = 2012
+##p.modifier()
 ##bdd.close()

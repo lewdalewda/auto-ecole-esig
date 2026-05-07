@@ -37,35 +37,16 @@ class eleve :
         cursor.execute(sql,(self.Nom, self.Prenom, self.age, self.hdc, self.hdf, self.boite,self.id))
         bdd.commit()
         
-    def suprimer(): #works
-        
-        while True:
-            choix = int(input("choisisez id 1 ou nom 2 "))
-            
-            if choix == 1:
-               
-                i = int(input("entrer id à supprimer"))
-                
-            
-            elif choix == 2:
-                
-                n = str(input("entre le nom (nom en Majuscule) "))
-                p = str(input("entre le nom (nom en Majuscule) "))
-                
-                cursor.execute("select elv_id from eleve where elv_nom = %s and elv_prenom = %s ", (n,p))
-                res = cursor.fetchall()
-                i = res[0]
-                
-                
-                
+    def suprimer(id): #works
+            i = int(id)  
             print(i)
             sql = "DELETE FROM eleve WHERE elv_id = %s"
             cursor.execute(sql,(i,))
             bdd.commit()
-            break        
+                
     
-p = eleve(5, "GAUDEAU", "Axel", 17, 30, 0, 1)
+##p = eleve(5, "GAUDEAU", "Axel", 17, 30, 0, 1)
+##p.afficher()
 ##p.ajouter()
-p.boite = 0
-p.modifier()
+##eleve.suprimer(4)
 ##bdd.close()
