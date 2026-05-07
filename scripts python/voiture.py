@@ -40,30 +40,11 @@ class voiture :
         
     def suprimer(): ##work
          
-        while True:
-            choix = int(input("choisisez id 1 ou nom 2 "))
-             
-            if choix == 1:
-                
-                i = int(input("entrer id à supprimer"))
-                 
-             
-            elif choix == 2:
-                 
-                n = str(input("entre le nom (nom en Majuscule) "))
-                 
-                cursor.execute("select car_id from voiture where car_nom = %s ", (n,))
-                res = cursor.fetchall()
-                i = res[0][0]
-                
-                 
-                 
-                 
-            print(i)
-            sql = "DELETE FROM voiture WHERE car_id = %s"
-            cursor.execute(sql,(i,))
-            bdd.commit()
-            break
+        i = int(id)  
+        print(i)
+        sql = "DELETE FROM voiture WHERE car_id = %s"
+        cursor.execute(sql,(i,))
+        bdd.commit()
                 
 ##p = voiture(40, "Peugeot 108", 2016, 500, 300000, 100, 0, 0)
 ##p.ajouter()

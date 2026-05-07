@@ -37,34 +37,15 @@ class moniteur :
         
     def suprimer(): #works
          
-        while True:
-            choix = int(input("choisisez id 1 ou nom 2 "))
-             
-            if choix == 1:
-                
-                i = int(input("entrer id à supprimer"))
-                 
-             
-            elif choix == 2:
-                 
-                n = str(input("entre le nom (nom en Majuscule) "))
-                p = str(input("entre le nom (nom en Majuscule) "))
-                 
-                cursor.execute("select pro_id from prof where pro_nom = %s and pro_prenom = %s ", (n,p))
-                res = cursor.fetchall()
-                i = res[0][0]
-                 
-                 
-                 
-            print(i)
-            sql = "DELETE FROM prof WHERE pro_id = %s"
-            cursor.execute(sql,(i,))
-            bdd.commit()
-            break
+        i = int(id)  
+        print(i)
+        sql = "DELETE FROM prof WHERE pro_id = %s"
+        cursor.execute(sql,(i,))
+        bdd.commit()
 
-p = moniteur(3,"GERAUT","Athalia",20,20,10)
+#p = moniteur(3,"GERAUT","Athalia",20,20,10)
 ##p.ajouter()
-p.age = 25
-p.modifier()
+#p.age = 25
+#p.modifier()
 ##moniteur.suprimer()
 ##bdd.close()

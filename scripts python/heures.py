@@ -45,34 +45,15 @@ class heure :
         
     def supprimer(): ##work
            
-        while True:
-            choix = int(input("choisisez id 1 ou nom 2 "))
-             
-            if choix == 1:
-                
-                i = int(input("entrer id à supprimer"))
-                 
-             
-            elif choix == 2:
-                 
-                d = str(input("entre la date (annee-mois-jour) "))
-                 
-                cursor.execute("select hr_id from heure where hr_date = %s ", (d,))
-                res = cursor.fetchall()
-                i = res[0][0]
-                
-                 
-                 
-                 
-            print(i)
-            sql = "DELETE FROM heure WHERE hr_id = %s"
-            cursor.execute(sql,(i,))
-            bdd.commit()
-            break
+        i = int(id)  
+        print(i)
+        sql = "DELETE FROM heure WHERE hr_id = %s"
+        cursor.execute(sql,(i,))
+        bdd.commit()
         
 
-h = heure(5,"2026-06-12", 2, 4, 1, 4, 50, "2026-06-12 09:00:00", "2026-06-12 11:00:00", 0, 0)
+#h = heure(5,"2026-06-12", 2, 4, 1, 4, 50, "2026-06-12 09:00:00", "2026-06-12 11:00:00", 0, 0)
 ##h.ajouter()
-h.date = "2026-07-12"
-h.modifier()
+#h.date = "2026-07-12"
+#h.modifier()
 ##bdd.close()
