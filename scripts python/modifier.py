@@ -328,4 +328,4 @@ def modifier():
         
     window.close()
     
-modifier()
+#modifier()

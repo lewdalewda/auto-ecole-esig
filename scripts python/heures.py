@@ -43,17 +43,17 @@ class heure :
         cursor.execute(sql,(self.date, self.duree, self.elv, self.prof, self.car, self.km, self.depart, self.fin, self.boite, self.passee, self.id))
         bdd.commit()
         
-    def supprimer(): ##work
-           
-        i = int(id)  
-        print(i)
+    def supprimer(chiffre): ##work
+        chiffre1 = int(chiffre)
+        print(chiffre1, "yes lol")
         sql = "DELETE FROM heure WHERE hr_id = %s"
-        cursor.execute(sql,(i,))
+        cursor.execute(sql,(chiffre1,))
         bdd.commit()
         
 
-#h = heure(5,"2026-06-12", 2, 4, 1, 4, 50, "2026-06-12 09:00:00", "2026-06-12 11:00:00", 0, 0)
+h = heure(5,"2026-06-12", 2, 4, 1, 4, 50, "2026-06-12 09:00:00", "2026-06-12 11:00:00", 0, 0)
 ##h.ajouter()
 #h.date = "2026-07-12"
 #h.modifier()
 ##bdd.close()
+#heure.supprimer(2)
