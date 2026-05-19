@@ -38,7 +38,7 @@ class moniteur :
         cursor.execute(sql,(self.Nom, self.Prenom, self.age, self.hc, self.hl, self.id))
         bdd.commit()
         
-    def suprimer(): #works
+    def suprimer(id): #works
          
         i = int(id)  
         print(i)

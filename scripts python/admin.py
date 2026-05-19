@@ -31,12 +31,12 @@ class admin:
                 for etu in res:
                     e = eleve.eleve(etu[0],etu[1],etu[2],etu[3],etu[4],etu[5],etu[6])
                     lst.append(e)
-                    e.afficher()
+                    eleve.eleve.afficher(liste[1])
                 chx = int(liste[1]) #int(input("entrez id d'éléve"))
                 
                 for elv in lst:
                     if chx == elv.id:
-                        elv.afficher()
+                        
                         edi = liste[2] #int(input(""""que voulez vous modifier ?
                                         #1)nom et prenom
                                         #2)age
@@ -48,14 +48,14 @@ class admin:
                             p = liste[4] #str(input("entrez le nouveau prenom "))
                             elv.Nom = n
                             elv.Prenom = p
-                            elv.afficher()
+                            
                             elv.modifier()
                               
                         
                         elif edi == 2:
                             a = int(liste[3]) #str(input("entrez le nouveau age "))
                             elv.age = a
-                            elv.afficher()
+                           
                             elv.modifier()
                             
                            
@@ -65,7 +65,7 @@ class admin:
                             hf = 30 - hc
                             elv.hdc = hc
                             elv.hdf = hf
-                            elv.afficher()
+                            
                             elv.modifier()
                             
                         
@@ -77,7 +77,7 @@ class admin:
                                 elv.boite = 1
                             else:
                                 print("entrée non valide")
-                            elv.afficher()
+                            
                             elv.modifier()
                             
                         
@@ -99,7 +99,7 @@ class admin:
                 
                 for mon in lst:
                     if chx == mon.id:
-                        mon.afficher()
+                        moniteur.moniteur.afficher(liste[1])
                         edi = int(liste[2]) #int(input(""""que voulez vous modifier ?
                                        # 1)nom et prenom
                                        # 2)age
@@ -145,7 +145,7 @@ class admin:
                 
                 for car in lst:
                     if chx == car.id:
-                        car.afficher()
+                        voiture.voiture.afficher(liste[1])
                         edi = int(liste[2]) #int(input(""""que voulez vous modifier ?
                                         #1)nom 
                                         #2)annee
@@ -265,7 +265,6 @@ class admin:
                             hr.modifier()
                             
                         
-                        if edi == 6:
                             n = int(liste[3]) #int(input("entrez la distance "))
                             hr.km = n
                             hr.modifier()
