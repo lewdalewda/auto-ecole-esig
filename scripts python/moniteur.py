@@ -14,8 +14,11 @@ class moniteur :
         self.hc=hc
         self.hl=hl
         
-    def afficher(self):
-        print(self.id, self.Nom, self.Prenom, self.age, self.hc, self.hl)
+    def afficher(id):
+        i=int(id)
+        cursor.execute("SELECT * FROM prof Where pro_id = %s",(i,))
+        res = cursor.fetchall()
+        return(res)
       
     
     

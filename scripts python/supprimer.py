@@ -29,24 +29,23 @@ def supprimer():
             window.extend_layout(window["elv"], [[sg.Input("ID",key='id1')],[sg.Button("approuver1")]])
         if event=="approuver1":
              id1 = values['id1']
-             e = eleve.ele
-             eleve.eleve.supprimer(int(id1))
+             eleve.eleve.suprimer(int(id1))
              
         if event == "supprimer moniteur" :
             window.extend_layout(window["elv"], [[sg.Input("ID",key='id2')],[sg.Button("approuver2")]])
-        if event=="approuver":
+        if event=="approuver2":
              id2 = values['id2']
-             moniteur.moniteur.supprimer(int(id2))
+             moniteur.moniteur.suprimer(int(id2))
             
         if event == "supprimer voiture" :
             window.extend_layout(window["elv"], [[sg.Input("ID",key='id3')],[sg.Button("approuver3")]])
-        if event=="approuver":
+        if event=="approuver3":
              id3 = values['id3']
-             voiture.voiture.supprimer(int(id3))
+             voiture.voiture.suprimer(int(id3))
 
         if event == "supprimer heures" :
             window.extend_layout(window["elv"], [[sg.Input("ID",key='id4')],[sg.Button("approuver4")]])
-        if event=="approuver":
+        if event=="approuver4":
              id4 = values['id4']
              
              heures.heure.supprimer(int(id4))

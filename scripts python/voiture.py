@@ -17,7 +17,11 @@ class voiture :
         self.boite=boite
         
     def afficher(self):
-        print(self.id, self.Nom, self.annee, self.capa, self.km, self.hpw, self.lstd, self.boite)
+        i= int(id)
+        cursor.execute("SELECT * FROM voiture WHERE elv_id = %s", (i,))
+        res = cursor.fetchall()
+        
+        return(res)
       
     
     def ajouter(self): ##work
@@ -38,7 +42,7 @@ class voiture :
         cursor.execute(sql,(self.Nom, self.annee, self.capa, self.km, self.hpw, self.lstd, self.boite,self.id))
         bdd.commit()
         
-    def suprimer(): ##work
+    def suprimer(id): ##work
          
         i = int(id)  
         print(i)

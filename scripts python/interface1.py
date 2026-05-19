@@ -1,5 +1,7 @@
 import PySimpleGUI as sg
-import interface2 
+import interface2
+import interfaceeleve
+import interfacemoniteur
 
 layout3 =[[sg.T('entrez le mot de passe')],
          [sg.Input(key='mdp')],
@@ -11,15 +13,18 @@ while True:
     event, values = window.read()    
     print(event,values)
     if event == sg.WIN_CLOSED:
-        break
+        break 
     if event == 'entrer':
         if values['mdp'] == '1234':
             window.close()
             interface2.interface2()
             break
-    elif values['mdp'] == 'eleve1' :
+    if values['mdp'] == 'eleve1' :
         window.close()
-        interface2.interface2()
+        interfaceeleve.interfaceeleve()
+    if values['mdp'] == 'moniteur1' :
+        window.close()
+        interfacemoniteur.interfacemoniteur()
 
         
 window.close()

@@ -23,12 +23,12 @@ class heure :
         print(self.id, self.date, self.duree, self.elv, self.prof, self.car, self.km, self.depart, self.fin, self.boite, self.passee)
     
     def ajouter(self): ##work
-        sql = "INSERT INTO heure(hr_id, hr_date, hr_duree, hr_elv, hr_prof, hr_car, hr_km, hr_depart, hr_fin, hr_boite, hr_passee) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+        sql = "INSERT INTO heures(hr_id, hr_date, hr_duree, hr_elv, hr_prof, hr_car, hr_km, hr_depart, hr_fin, hr_boite, hr_passee) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
         cursor.execute(sql,(self.id, self.date, self.duree, self.elv, self.prof, self.car, self.km, self.depart, self.fin, self.boite, self.passee))
         bdd.commit()
         
     def modifier(self): ##work
-        sql = """UPDATE heure
+        sql = """UPDATE heures
         SET hr_date= %s, 
         hr_duree = %s, 
         hr_elv = %s, 
@@ -46,7 +46,7 @@ class heure :
     def supprimer(chiffre): ##work
         chiffre1 = int(chiffre)
         print(chiffre1, "yes lol")
-        sql = "DELETE FROM heure WHERE hr_id = %s"
+        sql = "DELETE FROM heures WHERE hr_id = %s"
         cursor.execute(sql,(chiffre1,))
         bdd.commit()
         

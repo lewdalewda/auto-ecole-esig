@@ -16,8 +16,13 @@ class eleve :
         self.hdf=hdf
         self.boite=boite
         
-    def afficher(self):
-        print(self.id, self.Nom, self.Prenom, self.age, self.hdc, self.hdf, self.boite )
+    def afficher(id):
+        i= int(id)
+        cursor.execute("SELECT * FROM eleve WHERE elv_id = %s", (i,))
+        res = cursor.fetchall()
+        
+        return(res)
+            
     
     
     def ajouter(self): ## works
@@ -51,3 +56,4 @@ class eleve :
 ##p.ajouter()
 ##eleve.suprimer(4)
 ##bdd.close()
+eleve.afficher(2)
