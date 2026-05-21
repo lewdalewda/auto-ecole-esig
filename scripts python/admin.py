@@ -31,7 +31,7 @@ class admin:
                 for etu in res:
                     e = eleve.eleve(etu[0],etu[1],etu[2],etu[3],etu[4],etu[5],etu[6])
                     lst.append(e)
-                    eleve.eleve.afficher(liste[1])
+                    
                 chx = int(liste[1]) #int(input("entrez id d'éléve"))
                 
                 for elv in lst:
@@ -70,7 +70,7 @@ class admin:
                             
                         
                         elif edi == 4:
-                            b = int(liste[3]) #str(input("boite manuelle (M) ou auto (A) "))
+                            b = (liste[3]) #str(input("boite manuelle (M) ou auto (A) "))
                             if b == "M":
                                 elv.boite = 0
                             elif b == "A":
@@ -95,11 +95,10 @@ class admin:
                     p = moniteur.moniteur(pro[0],pro[1],pro[2],pro[3],pro[4],pro[5])
                     lst.append(p)
                 print(lst)
-                chx = liste[1]#int(input("entrez id de prof "))
+                chx = int(liste[1])#int(input("entrez id de prof "))
                 
                 for mon in lst:
                     if chx == mon.id:
-                        moniteur.moniteur.afficher(liste[1])
                         edi = int(liste[2]) #int(input(""""que voulez vous modifier ?
                                        # 1)nom et prenom
                                        # 2)age
@@ -145,7 +144,7 @@ class admin:
                 
                 for car in lst:
                     if chx == car.id:
-                        voiture.voiture.afficher(liste[1])
+                       
                         edi = int(liste[2]) #int(input(""""que voulez vous modifier ?
                                         #1)nom 
                                         #2)annee
@@ -207,7 +206,7 @@ class admin:
                             break
             
             elif choix ==4:
-                cursor.execute("SELECT * FROM heure")
+                cursor.execute("SELECT * FROM heures")
                 res = cursor.fetchall()
                 lst =[]
                 
@@ -264,7 +263,7 @@ class admin:
                             hr.car = n
                             hr.modifier()
                             
-                        
+                        if edi == 6:
                             n = int(liste[3]) #int(input("entrez la distance "))
                             hr.km = n
                             hr.modifier()
