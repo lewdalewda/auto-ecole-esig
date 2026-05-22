@@ -4,7 +4,7 @@ import interfaceeleve
 import interfacemoniteur
 
 layout3 =[[sg.T('entrez le mot de passe admin pour modifier')],[sg.T('entrez eleve1 pour acceder aux infos eleve')],[sg.T('entrez moniteur1 pour acceder aux infos moniteur')],
-         [sg.Input(key='mdp')],
+         [sg.Input(key='mdp', s=9 )],
          [sg.Button('entrer')]]
 
 window = sg.Window('My window with tabs', layout3, default_element_size=(100,100))  
