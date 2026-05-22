@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 import moniteur
 
 liste=[]
-
+sg.theme('DarkGrey11')
 def interfacemoniteur() : 
     
     layout3 =[[sg.T('entrez identifiant', key='elv')],
