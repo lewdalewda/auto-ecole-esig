@@ -18,7 +18,6 @@ class heure :
         self.boite=boite
         self.passee=passee
     
-    
     def afficher(self):
         print(self.id, self.date, self.duree, self.elv, self.prof, self.car, self.km, self.depart, self.fin, self.boite, self.passee)
     
@@ -50,10 +49,3 @@ class heure :
         cursor.execute(sql,(chiffre1,))
         bdd.commit()
         
-
-h = heure(5,"2026-06-12", 2, 4, 1, 4, 50, "2026-06-12 09:00:00", "2026-06-12 11:00:00", 0, 0)
-##h.ajouter()
-#h.date = "2026-07-12"
-#h.modifier()
-##bdd.close()
-#heure.supprimer(2)
