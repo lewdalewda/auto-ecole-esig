@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 import eleve
 
 liste=[]
-
+sg.theme('DarkGrey11')
 def interfaceeleve() : 
     
     layout3 =[[sg.T('entrez identifiant', key='elv')],
