@@ -3,7 +3,7 @@ import interface2
 import interfaceeleve
 import interfacemoniteur
 
-layout3 =[[sg.T('entrez le mot de passe')],
+layout3 =[[sg.T('entrez le mot de passe admin pour modifier')],[sg.T('entrez eleve1 pour acceder aux infos eleve')],[sg.T('entrez moniteur1 pour acceder aux infos moniteur')],
          [sg.Input(key='mdp')],
          [sg.Button('entrer')]]
 
