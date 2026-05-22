@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 import modifier
 import ajouter
 import supprimer
-
+sg.theme('DarkGrey11')
 def interface2() :
     
     layout1 =[[sg.T('Que voulez vous faire')],
