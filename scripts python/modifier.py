@@ -1,6 +1,6 @@
 import PySimpleGUI as sg    
 import admin as ad
-liste=[]
+liste=[] ##durant l'utilisation de ce programme on remplit la liste avec les etapes que l'on envoie ensuite a la fonction edit de admin.py (chaque boutton ajoute la "direction" correspondante sur l'arbre de choix dans la la liste)
 
 def modifier():
      
