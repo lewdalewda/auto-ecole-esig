@@ -25,9 +25,8 @@ class eleve :
             
     
     
-    def ajouter(self): ## works
+    def ajouter(self): ## 
         sql = "INSERT INTO eleve(elv_id, elv_nom, elv_prenom, elv_age, elv_heuresfts, elv_heuresrest, elv_boite) VALUES(%s,%s,%s,%s,%s,%s,%s)"
-        print("2 ok")
         cursor.execute(sql,(self.id, self.Nom, self.Prenom, self.age, self.hdc, self.hdf, self.boite))
         bdd.commit()
     
@@ -49,11 +48,3 @@ class eleve :
             sql = "DELETE FROM eleve WHERE elv_id = %s"
             cursor.execute(sql,(i,))
             bdd.commit()
-                
-    
-##p = eleve(5, "GAUDEAU", "Axel", 17, 30, 0, 1)
-##p.afficher()
-##p.ajouter()
-##eleve.suprimer(4)
-##bdd.close()
-eleve.afficher(2)
