@@ -6,7 +6,7 @@ import heures
 import datetime
 
 liste=[]
-
+sg.theme('DarkGrey11')
 def ajouter():      
     
     tab2_layout = [[sg.T('choisir que faire')],    
