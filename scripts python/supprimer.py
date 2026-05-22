@@ -4,7 +4,7 @@ import voiture
 import moniteur
 import heures
 liste=[]
-
+sg.theme('DarkGrey11')
 def supprimer():      
     
     tab2_layout = [[sg.T('choisir que faire')],    
