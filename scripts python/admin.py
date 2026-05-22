@@ -16,13 +16,7 @@ class admin:
     def edit(liste):
         while True:
             print(liste , "lol" )
-            choix = liste[0] ##int(input("""menu modifications,choisisez ce que vous voulez modifier :
-                  #1) élèves
-                  #2) moniteurs
-                  #3) voitures
-                  #4) heures
-                  #5) quitter le menu
-                  #entrez votre choix """))
+            choix = liste[0] ##le systeme d'édit fonctionne comme un "arbre a choix" chaque étape propose plusieurs choix ainsi la liste donnée quand on "invoque" la fonction sert de "chemin" ou [0] donne la catégorie de données modifiée (elv, prof, ect), [1] donne quel type de données on modifie (nom, age, ect) et les emplacements suivants contiennent les nouvelles informations 
             if choix == 1: ## modification données eleve
                 cursor.execute("SELECT * FROM eleve")
                 res = cursor.fetchall()
@@ -30,62 +24,44 @@ class admin:
                 
                 for etu in res:
                     e = eleve.eleve(etu[0],etu[1],etu[2],etu[3],etu[4],etu[5],etu[6])
-                    lst.append(e)
-                    
+                    lst.append(e)  
                 chx = int(liste[1]) #int(input("entrez id d'éléve"))
                 
                 for elv in lst:
                     if chx == elv.id:
-                        
-                        edi = liste[2] #int(input(""""que voulez vous modifier ?
-                                        #1)nom et prenom
-                                        #2)age
-                                        #3)heures faites/a faire
-                                        #4)boite manuelle/automatique
-                                        #5)quiter """))
+                        edi = liste[2] 
                         if edi == 1:
                             n = liste[3] #str(input("entrez le nouveau nom (en majuscule) "))
                             p = liste[4] #str(input("entrez le nouveau prenom "))
                             elv.Nom = n
                             elv.Prenom = p
-                            
                             elv.modifier()
-                              
-                        
+                            
                         elif edi == 2:
                             a = int(liste[3]) #str(input("entrez le nouveau age "))
                             elv.age = a
-                           
                             elv.modifier()
                             
-                           
-                        
                         elif edi == 3:
-                            hc = int(liste[3]) #int(input("entrez le nombe d'heures faites "))
+                            hc = int(liste[3]) 
                             hf = 30 - hc
                             elv.hdc = hc
                             elv.hdf = hf
-                            
                             elv.modifier()
-                            
                         
                         elif edi == 4:
-                            b = (liste[3]) #str(input("boite manuelle (M) ou auto (A) "))
+                            b = (liste[3])
                             if b == "M":
                                 elv.boite = 0
                             elif b == "A":
                                 elv.boite = 1
                             else:
                                 print("entrée non valide")
-                            
                             elv.modifier()
                             
-                        
                         elif edi == 5:
                             break
                         
-                            
-    
             elif choix == 2: ## modification données profs
                 cursor.execute("SELECT * FROM prof")
                 res = cursor.fetchall()
@@ -99,26 +75,20 @@ class admin:
                 
                 for mon in lst:
                     if chx == mon.id:
-                        edi = int(liste[2]) #int(input(""""que voulez vous modifier ?
-                                       # 1)nom et prenom
-                                       # 2)age
-                                       # 3)heures faites/a faire
-                                       # 4)quiter """))
+                        edi = int(liste[2]) 
                         
                         if edi == 1:
-                            n = liste[3] #str(input("entrez le nouveau nom (en majuscule) "))
-                            p = liste[4] #str(input("entrez le nouveau prenom "))
+                            n = liste[3] 
+                            p = liste[4] 
                             mon.Nom = n
                             mon.Prenom = p
-                            mon.modifier()
-                                                        
+                            mon.modifier()                              
 
                         elif edi == 2:
                             a = int(liste[3]) #str(input("entrez le nouveau age "))
                             mon.age = a
                             mon.modifier()
-                            
-
+                        
                         elif edi == 3:
                             hc = int(liste[3]) #int(input("entrez le nombe d'heures faites "))
                             hf = 30 - hc
@@ -126,12 +96,11 @@ class admin:
                             mon.hl = hf
                             mon.modifier()
                                                        
-                        
                         elif edi == 4:
                             break
     
             
-            elif choix == 3:
+            elif choix == 3: ## modification données voiture
                 cursor.execute("SELECT * FROM voiture")
                 res = cursor.fetchall()
                 lst =[]
@@ -145,21 +114,12 @@ class admin:
                 for car in lst:
                     if chx == car.id:
                        
-                        edi = int(liste[2]) #int(input(""""que voulez vous modifier ?
-                                        #1)nom 
-                                        #2)annee
-                                        #3)capacité
-                                        #4)kilometrage
-                                        #5)hpw
-                                        #6)lstd
-                                        #7)boite
-                                        #8)quiter """))
+                        edi = int(liste[2])
                         if edi == 1:
                             n = liste[3] #str(input("entrez le nouveau nom (en majuscule) "))
                             car.Nom = n
                             car.modifier()
                                
-                        
                         elif edi == 2:
                             print("age")
                             a = int(liste[3]) #str(input("entrez l'année "))
@@ -201,11 +161,10 @@ class admin:
                                 print("entrée non valide")
                             car.modifier()
                         
-                        
                         elif edi == 8:
                             break
             
-            elif choix ==4:
+            elif choix ==4: ## modification données heures
                 cursor.execute("SELECT * FROM heures")
                 res = cursor.fetchall()
                 lst =[]
@@ -297,9 +256,7 @@ class admin:
                                 print("entrée non valide")
                             hr.modifier()
                             
-                        
                         if edi == 10:
-                            
                             b = liste[3] #str(input("heure complétée (Y) ou pas (N) "))
                             if b == "Y":
                                 hr.passee = 1
@@ -314,10 +271,6 @@ class admin:
                             break
                         
                         break 
-           
-            
-            
-            
             elif choix == 5:
                 bdd.close()
                 break
