@@ -21,6 +21,13 @@ class heure :
     def afficher(self):
         print(self.id, self.date, self.duree, self.elv, self.prof, self.car, self.km, self.depart, self.fin, self.boite, self.passee)
     
+    def afficherheleve(id):
+        sql = "SELECT * FROM heures WHERE hr_elv = %s"
+        cursor.execute(sql,(id,))
+        result = cursor.fetchall()
+        return(result)
+        
+    
     def ajouter(self): ##work
         sql = "INSERT INTO heures(hr_id, hr_date, hr_duree, hr_elv, hr_prof, hr_car, hr_km, hr_depart, hr_fin, hr_boite, hr_passee) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
         cursor.execute(sql,(self.id, self.date, self.duree, self.elv, self.prof, self.car, self.km, self.depart, self.fin, self.boite, self.passee))
