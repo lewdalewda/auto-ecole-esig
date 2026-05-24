@@ -3,7 +3,8 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))) ## méthode permettant d'acceder au fichier placés dans les different dossiers du projet 
 import PySimpleGUI as sg
 from items import eleve
-
+from items import heures
+import datetime
 liste=[]
 sg.theme('DarkGrey11')
 
@@ -31,8 +32,12 @@ def interfaceeleve() : ## comme interfacemoniteur.py on recupere un id et on aff
                 
             elif boite == 1:
                 txt = "auto"
-                
+
+
+            hr = heures.heure.afficherheleve(id1)
+
             texte_affichage = f"id: {elv[0][0]} | Nom: {elv[0][1]} | Prénom: {elv[0][2]} | Age: {elv[0][3]} | Heures faites: {elv[0][4]} | Heures à faire: {elv[0][5]} | Boite: {txt}"
-            window.extend_layout(window["elv"], [[sg.T(texte_affichage)]])
+            texte_affichage2 = f"id: {hr[0][0]} | date: {hr[0][1]} | durée: {hr[0][2]} |  distance: {hr[0][6]} km |  depart: {hr[0][7].hour}:{hr[0][7].minute}|  fin: {hr[0][8].hour}:{hr[0][8].minute}"
+            window.extend_layout(window["elv"], [[sg.T(texte_affichage)],[sg.HorizontalSeparator(color="gray")],[sg.T(texte_affichage2)]])
             
             
